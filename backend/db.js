@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const mongoURI = "mongodb+srv://cluster0.yctsz.mongodb.net/myFirstDatabase";
 const connectToMongo = ()=>{
     mongoose.connect(mongoURI, ()=>{
-        console.log("ho gaya connect!");
+        console.log("ho gaya mongoose se connect!");
     })
 }
 module.exports = connectToMongo;
