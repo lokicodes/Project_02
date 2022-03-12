@@ -4,10 +4,12 @@ const User = require("../models/Users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const fetchUser = require("../middlewares/fetchUser") ;
 
 const JWT_SECRET = "SecretKoSecretRhendoBhadwe" ;
 
-// Creating a user
+//Route 1 : Creating a user
+//matlab : isme initial token banta hai password hashing + salting se jo store hota hai db me.
 router.post("/createUser",[
     body("name", "Enter a valid name, min length 3 characters").isLength({min: 3,}),
     body("email", "Enter a valid email address").isEmail(),
@@ -51,7 +53,8 @@ router.post("/createUser",[
 }
 );
 
-//Authenticate a user
+//Route 2 : Authenticate a user
+// matlab : isme fir se ek tojen banta hai jo ki phir match kiya jata hai db me pade token se .
 router.post("/login",[
     body("email", "Enter a valid email address").isEmail(),
     body("password", "Password cannot be blank").exists(),
@@ -89,7 +92,21 @@ router.post("/login",[
     }
 
 
-
 })
+
+//Route 3 : Get logged in user details. Login required
+//Authentication ke baad humare pass ek authenticated token aa gaya hai usse 
+//user ka saara data kaise nikalenge ye part hai
+router.post('/getuser', fetchUser,  async (req, res) => {
+
+    try {
+      userId = req.user.id;
+      const user = await User.findById(userId).select("-password")
+      res.send(user)
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal Server Error");
+    }
+  })
 
 module.exports = router;
