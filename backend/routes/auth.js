@@ -3,6 +3,9 @@ const router = express.Router();
 const User = require("../models/Users");
 const { body, validationResult } = require("express-validator");
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+
+const JWT_SECRET = "SecretKoSecretRhendoBhadwe" ;
 
 router.post("/createUser",[
         body("name", "Enter a valid name, min length 3 characters").isLength({
@@ -34,7 +37,18 @@ router.post("/createUser",[
                 password: secPass,
                 email: req.body.email
             });
-            res.json(user);
+
+            const data = {
+                user:{
+                    id: user.id
+                }
+            }
+            const authToken = jwt.sign(data, JWT_SECRET) ;
+            // console.log(jwtData);
+            // res.json(user);
+            res.json({authToken})
+
+
         } catch (error) {
             console.error(error.message);
             res.status(500).send("Some Error Occured");
