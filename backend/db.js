@@ -5,7 +5,7 @@ const connectToMongo = ()=>{
     // mongoose.connect(mongoURI, ()=>{
     //     console.log("ho gaya mongoose se connect!");
     // })
-    mongoose.connect(
+   mongoose.connect(
         mongoURI,
         (err) => {
          if(err) console.log(err) 
