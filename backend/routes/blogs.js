@@ -16,7 +16,7 @@ router.get("/fetchallblogs", fetchUser, async (req, res) => {
 });
 
 //Route 2 : Create or Add Note to the db
-router.get("/createBlog", fetchUser, [
+router.post("/createBlog", fetchUser, [
     // ye part validation ke kaam aata hai
     body("title", "Enter a valid title, min length 5 characters").isLength({
       min: 5,
