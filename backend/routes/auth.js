@@ -108,8 +108,8 @@ router.post("/login",[
 router.post('/getuser', fetchUser,  async (req, res) => {
 
     try {
-    // yahan bina declare kare userid kyun use kiya hai?
-      userId = req.user.id;
+    
+      const userId = req.user.id;
       // yahan select me -password likhkr ham data me se password hatakr send krenge
       const user = await User.findById(userId).select("-password")
       res.send(user)

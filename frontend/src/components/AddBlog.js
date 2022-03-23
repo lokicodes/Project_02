@@ -7,7 +7,7 @@ const AddBlog = () => {
 
 
   const handleClick = (e) => {
-      e.preventDefault();
+      // e.preventDefault();
       addBlog(blog.title , blog.content, blog.tag);
   };
 
@@ -21,7 +21,7 @@ const AddBlog = () => {
   return (
     <div>
       <div className="container my-3">
-        <h1>Add A Note</h1>
+        <h1>Add your Blog</h1>
         <form>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">

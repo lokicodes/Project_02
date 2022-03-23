@@ -5,7 +5,7 @@ import BlogContext from "../context/BlogContext";
 const BlogItem = (props) => {
   const context = useContext(BlogContext);
   const { deleteBlog} = context;
-  const { blog } = props;
+  const { blog , updateBlog } = props;
   return (
     <div className="col-md-3">
       <div className="card my-3">
@@ -15,7 +15,7 @@ const BlogItem = (props) => {
               {blog.title}</h5> 
               {/* // font awesome icons used here */}
               <i className="fa-solid fa-trash-can mx-2" onClick={()=>{deleteBlog(blog._id)}}></i>
-              <i className="fa-solid fa-pen-clip mx-2"></i>
+              <i className="fa-solid fa-pen-clip mx-2" onClick={()=> updateBlog(blog)}></i>
           </div>
           <p className="card-text">{blog.content}</p>
         </div>

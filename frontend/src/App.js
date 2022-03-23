@@ -13,7 +13,6 @@ function App() {
       <BlogState>
         <Router>
           <Navbar />
-          <Alert message="shubham agrawal raheesjaada" />
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
