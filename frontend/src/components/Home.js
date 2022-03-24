@@ -1,10 +1,11 @@
 import React from "react";
 import Blogs from "./Blogs";
 
-const Home = () => {
+const Home = (props) => {
+  const {showAlert} = props ;
   return (
     <div>
-      <Blogs></Blogs>
+      <Blogs showAlert={showAlert} />
     </div>
   );
 };

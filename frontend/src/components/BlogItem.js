@@ -14,7 +14,7 @@ const BlogItem = (props) => {
             <h5 className="card-title">
               {blog.title}</h5> 
               {/* // font awesome icons used here */}
-              <i className="fa-solid fa-trash-can mx-2" onClick={()=>{deleteBlog(blog._id)}}></i>
+              <i className="fa-solid fa-trash-can mx-2" onClick={()=>{deleteBlog(blog._id); props.showAlert("Deleted Successfully" , "success") ;}}></i>
               <i className="fa-solid fa-pen-clip mx-2" onClick={()=> updateBlog(blog)}></i>
           </div>
           <p className="card-text">{blog.content}</p>

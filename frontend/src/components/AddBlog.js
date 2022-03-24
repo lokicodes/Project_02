@@ -1,6 +1,6 @@
 import {React, useState, useContext} from "react";
 import BlogContext from "../context/BlogContext";
-const AddBlog = () => {
+const AddBlog = (props) => {
   const context = useContext(BlogContext);
   const { addBlog } = context;
   const [blog, setBlog] = useState({title :"", content :"", tag :"default"})
@@ -9,6 +9,7 @@ const AddBlog = () => {
   const handleClick = (e) => {
       // e.preventDefault();
       addBlog(blog.title , blog.content, blog.tag);
+      props.showAlert("Added Successfully" , "success") ;
   };
 
 

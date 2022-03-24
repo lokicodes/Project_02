@@ -4,7 +4,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import BlogItem from "./BlogItem";
 import AddBlog from "./AddBlog";
 
-const Blogs = () => {
+const Blogs = (props) => {
   const context = useContext(BlogContext);
   const { blogs, getBlogs, editBlog } = context;
   useEffect(() => {
@@ -24,6 +24,7 @@ const Blogs = () => {
   const handleClick = (e) => {
     editBlog(blog.id, blog.editedtitle, blog.editedcontent, blog.editedtag)
     refClose.current.click();
+    props.showAlert("Updated Successfully" , "success") ;
   }
 
 
@@ -37,7 +38,7 @@ const Blogs = () => {
   return (
     // blog add karne ki functionality wala component (AddBlog)
     <div>
-      <AddBlog />
+      <AddBlog showAlert={props.showAlert} />
       {/* <!-- Button trigger modal --> */}
       <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
@@ -102,7 +103,7 @@ const Blogs = () => {
         <div className="container mx-2">{blogs.length === 0 && "No blogs to display"}</div>
         {blogs.map((blog) => {
           // blog={blog}, this value will be passed as props to blogItems, and blog can be destructured there
-          return <BlogItem key={blog._id} updateBlog={updateBlog} blog={blog} />;
+          return <BlogItem key={blog._id} updateBlog={updateBlog} showAlert={props.showAlert} blog={blog} />;
         })}
       </div>
     </div>
