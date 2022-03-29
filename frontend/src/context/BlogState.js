@@ -7,14 +7,29 @@ const BlogState = (props) => {
   // setBlog is a function used to update the blog state (blog)
   const [blogs, setBlog] = useState(initBlog);
 
-  // Get All Blogs
+  // Get All Blogs for a specific user
   const getBlogs = async () => {
     // API
     const response = await fetch(`${host}/api/blogs/fetchallblogs`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": localStorage.getItem('token'),
+        "auth-token": localStorage.getItem('token')
+      },
+    });
+    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ
+    const json = await response.json();
+    console.log(json);
+    setBlog(json);
+  };
+
+  // Get All Blogs(total)
+  const allBlogs = async () => {
+    // API
+    const response = await fetch(`${host}/api/blogs/fetchtotalblogs`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
       },
     });
     
@@ -91,7 +106,7 @@ const BlogState = (props) => {
     // here props.children means that the "value" will be accesible to all the items(props) present inside the blogcontext component.
     // simple explanation of what props.children does is that it is used to display whatever you include between the opening and closing tags when invoking a component.
     <BlogContext.Provider
-      value={{ blogs, setBlog, addBlog, deleteBlog, editBlog, getBlogs }}
+      value={{ blogs, setBlog, addBlog,allBlogs, deleteBlog, editBlog, getBlogs }}
     >
       <>{props.children}</>
     </BlogContext.Provider>
