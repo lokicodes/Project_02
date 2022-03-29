@@ -9,6 +9,7 @@ const AddBlog = (props) => {
   const handleClick = (e) => {
       e.preventDefault();
       addBlog(blog.title , blog.content, blog.tag);
+      setBlog({title :"" ,content : "",tag :""}) ;
       props.showAlert("Added Successfully" , "success") ;
   };
 
@@ -33,6 +34,7 @@ const AddBlog = (props) => {
               className="form-control"
               id="title"
               name="title"
+              value={blog.title}
               onChange={onChange}
             />
           </div>
@@ -45,6 +47,7 @@ const AddBlog = (props) => {
               className="form-control"
               id="content"
               name="content"
+              value={blog.content}
               onChange={onChange}
             />
           </div>
@@ -57,6 +60,7 @@ const AddBlog = (props) => {
               className="form-control"
               id="tag"
               name="tag"
+              value={blog.tag}
               onChange={onChange}
             />
           </div>

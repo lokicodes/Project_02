@@ -35,19 +35,7 @@ const BlogState = (props) => {
       body: JSON.stringify({ title, content, tag }), // body data type must match "Content-Type" header
     });
 
-    const json = await response.json() ;
-    console.log(json) ;
-
-    // logic
-    const newBlog = {
-      _id: "622fa71b6f62fcdd87dec335",
-      user: "622f3a92b7e151bf1c010b9d",
-      title: title,
-      content: content,
-      tag: tag,
-      date: "2022-03-14T20:35:39.340Z",
-      __v: 0,
-    };
+    const newBlog = await response.json() ;
     // concat makes a new updated array
     setBlog(blogs.concat(newBlog));
   };
