@@ -7,7 +7,7 @@ const AddBlog = (props) => {
 
 
   const handleClick = (e) => {
-      // e.preventDefault();
+      e.preventDefault();
       addBlog(blog.title , blog.content, blog.tag);
       props.showAlert("Added Successfully" , "success") ;
   };
@@ -33,7 +33,6 @@ const AddBlog = (props) => {
               className="form-control"
               id="title"
               name="title"
-              aria-describedby="emailHelp"
               onChange={onChange}
             />
           </div>
@@ -63,6 +62,7 @@ const AddBlog = (props) => {
           </div>
          
           <button
+            disabled={blog.title.length < 3 || blog.content.length < 5}
             type="submit"
             className="btn btn-primary"
             onClick={handleClick}

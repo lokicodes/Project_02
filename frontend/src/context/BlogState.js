@@ -14,11 +14,10 @@ const BlogState = (props) => {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ",
+        "auth-token": localStorage.getItem('token'),
       },
     });
-    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ
+    
     const json = await response.json();
     console.log(json);
     setBlog(json);
@@ -31,7 +30,7 @@ const BlogState = (props) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ"
+        "auth-token": localStorage.getItem('token')
       },
       body: JSON.stringify({ title, content, tag }), // body data type must match "Content-Type" header
     });
@@ -60,8 +59,7 @@ const BlogState = (props) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ",
+        "auth-token": localStorage.getItem('token'),
       },
       // body: JSON.stringify(data), // body data type must match "Content-Type" header
     });
@@ -81,8 +79,7 @@ const BlogState = (props) => {
       method: 'PUT',
       headers: {
         "Content-Type": "application/json",
-        "auth-token":
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ",
+        "auth-token": localStorage.getItem('token'),
       },
       body: JSON.stringify({ title, content, tag }), // body data type must match "Content-Type" header
     });

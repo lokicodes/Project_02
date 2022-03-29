@@ -1,6 +1,13 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
+
+  let navigate = useNavigate() ;
+  const handleLogout = () => {
+    localStorage.removeItem('token') ;
+    navigate("/login") ;
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container-fluid">
@@ -34,6 +41,7 @@ const Navbar = () => {
               </NavLink>
             </li>
           </ul>
+          {!localStorage.getItem('token') ? 
           <form className="d-flex">
             <input
               className="form-control me-2"
@@ -46,7 +54,7 @@ const Navbar = () => {
             </button>
             <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
             <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-          </form>
+          </form> : <button onClick={handleLogout} className="btn btn-primary">Logout</button>}
         </div>
       </div>
     </nav>

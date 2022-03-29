@@ -3,12 +3,20 @@ import BlogContext from "../context/BlogContext";
 import { useContext, useEffect, useRef, useState } from "react";
 import BlogItem from "./BlogItem";
 import AddBlog from "./AddBlog";
+import { useNavigate } from "react-router-dom";
 
 const Blogs = (props) => {
   const context = useContext(BlogContext);
+  let navigate = useNavigate() ;
   const { blogs, getBlogs, editBlog } = context;
   useEffect(() => {
-    getBlogs()
+    if(localStorage.getItem('token')) {
+      getBlogs()
+      
+    }
+    else {
+      navigate("/login") ;
+    }
   }, [])
 
   const ref = useRef(null)
@@ -90,7 +98,7 @@ const Blogs = (props) => {
             </div>
             <div className="modal-footer">
               <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button onClick={handleClick} type="button" className="btn btn-primary">Update Blog</button>
+              <button disabled={blog.editedtitle.length < 3 || blog.editedcontent.length < 5} onClick={handleClick} type="button" className="btn btn-primary">Update Blog</button>
             </div>
           </div>
         </div>
