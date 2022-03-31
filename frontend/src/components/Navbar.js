@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 const Navbar = () => {
 
@@ -7,6 +7,33 @@ const Navbar = () => {
     localStorage.removeItem('token') ;
     navigate("/login") ;
   }
+
+  const initUser =[]
+  const [user, setUser] = useState(initUser);
+  useEffect(() => {
+    if(localStorage.getItem('token')) {
+      getUser() 
+    }
+  }, [])
+
+  
+  const getUser = async () => {
+    // API
+    const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem('token')
+      },
+    });
+    // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjIyZjNhOTJiN2UxNTFiZjFjMDEwYjlkIn0sImlhdCI6MTY0NzI2MjM1NH0.a7Fi4W40nqfizOF70MzCKbMV8Fpnsn6fNbLKiDjvLsQ
+    const json = await response.json();
+    console.log(json);
+    setUser(json);
+  };
+  
+
+
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -59,7 +86,7 @@ const Navbar = () => {
             </button>
             <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
             <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-          </form> : <button onClick={handleLogout} className="btn btn-primary">Logout</button>}
+          </form> : <div >Welcome {user.name}<button onClick={handleLogout} className="btn btn-primary">Logout</button></div>}
         </div>
       </div>
     </nav>
