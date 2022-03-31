@@ -22,9 +22,6 @@ const BlogSchema = new Schema({
     likes: {
         type: Number
     },
-    dislikes: {
-        type: Number
-    },
     comment: {
         type: String
     },

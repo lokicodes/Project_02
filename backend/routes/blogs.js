@@ -102,4 +102,14 @@ router.delete("/deleteBlog/:id", fetchUser, async (req, res) => {
   }
 });
 
+//Route 5 : Get All the blogs
+router.get("/fetchtotalblogs", async (req, res) => {
+  try {
+    const blogs = await Blog.find({});
+    res.json(blogs);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error");
+  }
+});
 module.exports = router;

@@ -8,6 +8,7 @@ import Alert from "./components/Alert";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import { useState } from "react";
+import TotalBlogs from "./components/TotalBlogs";
 
 // very important : never declare a component as blogState (camelCasing), but BlogState. As the browser only recognizes PascalCasing.
 function App() {
@@ -33,6 +34,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home showAlert={showAlert} />} />
               <Route path="/about" element={<About />} />
+              <Route path="/allBlogs" element={<TotalBlogs />} />
               <Route path="/login" element={<Login showAlert={showAlert} />} />
               <Route path="/signup" element={<Signup showAlert={showAlert} />} />
               {/* <Route path="*" element={<NotFound/>}/> */}

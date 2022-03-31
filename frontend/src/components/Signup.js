@@ -20,7 +20,7 @@ const Signup = (props) => {
     console.log(json);
     if (json.success) {
       // Save the auth token and redirect
-      localStorage.setItem('token', json.authtoken);
+      localStorage.setItem('token', json.authToken);
       navigate("/");
       props.showAlert("Account Created Successfully" , "success") ;
 
@@ -28,6 +28,7 @@ const Signup = (props) => {
     else {
       props.showAlert("Invalid Credentials" , "danger") ;
     }
+    window. location. reload(false);
   }
 
   const onChange = (e) => {
