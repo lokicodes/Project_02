@@ -112,4 +112,47 @@ router.get("/fetchtotalblogs", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+// Route 6 : Add a like 
+router.put("/like/:id" , fetchUser , async(req , res ) => {
+  try {
+    // get the like list array for the particular blog
+    // check whether the user has already liked or not
+    const likeList = await Blog.findById(req.params.id);
+    for(let ind=0 ; ind < likeList.likes.length ; ind++){
+      if(likeList.likes[ind].toString() === req.user.id) {
+        return res.status(405).send("Already liked");
+      }
+    }
+
+    // agar sab kuch theek raha to like array me user id insert kardo
+    res.json(await Blog.findByIdAndUpdate(req.params.id, {
+      $push:{likes:req.user.id}
+    } , {new : true})) ;
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error"); 
+  }
+})
+
+//Route 7 : Adding comment
+router.put('/comment/:id' , fetchUser , async(req , res) => {
+
+  try {
+    
+    const comment = req.body ;
+    // console.log(comment);
+    res.json(await Blog.findByIdAndUpdate(req.params.id , {
+      $push:{commenter:req.user.id ,comment}
+    } , {new : true})) ;
+
+
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Internal Server Error"); 
+  }
+
+})
+
 module.exports = router;

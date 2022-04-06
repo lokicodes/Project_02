@@ -122,4 +122,25 @@ router.post('/getuser', fetchUser,  async (req, res) => {
     }
   })
 
+// change password
+router.put('/updatePassword', fetchUser, async(req,res) => {
+
+    try {
+        
+        // const userId = req.user.id ;
+        // const user = await User.findById(userId).select('password') ;
+        const {password} = req.body;
+         // yahan bcrypt use krke salting kr rahe hain
+         const salt = await bcrypt.genSalt(10);
+         const secPass = await bcrypt.hash(password, salt);
+         const updatedPassword = await User.findByIdAndUpdate(req.user.id , {$set : {"password" : secPass}} , {new : true});
+         res.json({updatedPassword});
+        //  console.log("hi" +password);
+        
+    } catch (error) {
+        console.error(error.message);
+      res.status(500).send("Internal Server Error");
+    }
+})
+
 module.exports = router;
