@@ -1,53 +1,31 @@
-import React from "react";
+import React , {useRef} from "react";
 import BlogContext from "../context/BlogContext";
-import { useContext, useEffect, useRef, useState } from "react";
-import BlogItem from "./BlogItem";
-import AddBlog from "./AddBlog";
-import { useNavigate } from "react-router-dom";
 
-const Blogs = (props) => {
-  const context = useContext(BlogContext);
-  let navigate = useNavigate() ;
-  const { blogs, getBlogs, editBlog } = context;
-  useEffect(() => {
-    if(localStorage.getItem('token')) {
-      getBlogs()
-    }
-    else {
-      navigate("/login") ;
-    }
-  }, [])
- 
+// yaha props me blog.js se aaya hua data use ho raha hai
+const TotalItem = (props) => {
+  
+  const { blog } = props;
   const ref = useRef(null)
   const refClose = useRef(null)
-  const [blog, setBlog] = useState({id: "", editedtitle: "", editedcontent: "", editedtag: "" })
-
-  const updateBlog = (currentBlog) => {
-    ref.current.click();
-    setBlog({ id: currentBlog._id, editedtitle: currentBlog.title, editedcontent: currentBlog.content, editedtag: currentBlog.tag })
-  }
-
-
-  const handleClick = (e) => {
-    editBlog(blog.id, blog.editedtitle, blog.editedcontent, blog.editedtag)
-    refClose.current.click();
-    props.showAlert("Updated Successfully" , "success") ;
-  }
-
-
-  const onChange = (e) => {
-    // jo bhi name ki value hai har field me usko change(continuosly update) krke jo bhi type kr rahe hain vo value daal di jayegi
-    setBlog({ ...blog, [e.target.name]: e.target.value })
-  }
-
-
 
   return (
-    // blog add karne ki functionality wala component (AddBlog)
-    <div>
-      <AddBlog showAlert={props.showAlert} />
-      {/* <!-- Button trigger modal --> */}
-      <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  
+    <div className="col-md-3">
+      <div className="card my-3">
+        <div className="card-body">
+          <div className="d-flex align-items-center">
+            <h5 className="card-title">
+              {blog.title}</h5>
+          </div>
+          <p className="card-text">{blog.content}</p>
+          <i class="fa-regular fa-comment"></i>
+          <button class="fas fa-thumbs-up" ></button>
+          
+        </div>
+      </div>
+
+     {/* <!-- Button trigger modal --> */}
+     <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
 
@@ -102,19 +80,8 @@ const Blogs = (props) => {
           </div>
         </div>
       </div>
-
-      <div>
-        <h2>Your Blogs</h2>
-      </div>
-      <div className="row my-3">
-        <div className="container mx-2">{blogs.length === 0 && "No blogs to display"}</div>
-        {blogs.map((blog) => {
-          // blog={blog}, this value will be passed as props to blogItems, and blog can be destructured there
-          return <BlogItem key={blog._id} updateBlog={updateBlog} showAlert={props.showAlert} blog={blog} />;
-        })}
-      </div>
     </div>
   );
 };
 
-export default Blogs;
+export default TotalItem;

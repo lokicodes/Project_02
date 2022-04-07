@@ -19,12 +19,14 @@ const BlogSchema = new Schema({
         type: String,
         default: "General"
     },
-    likes: {
-        type: Number
-    },
-    comment: {
-        type: String
-    },
+    likes: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref : 'user'
+    }],
+    comment: [{
+        commenter : { type: mongoose.Schema.Types.ObjectId, ref : 'user'},
+        commentbody : {type : String}}
+    ],
     date: {
         type: Date,
         default: Date.now
