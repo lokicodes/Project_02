@@ -116,7 +116,7 @@ const Navbar = (props) => {
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                   <li>
-                    <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="dropdown-item" >
+                    <button type="button" data-bs-toggle="modal" data-bs-target="#passwordModal" class="dropdown-item" >
                       Change Password
                     </button>
                   </li>
@@ -128,12 +128,12 @@ const Navbar = (props) => {
                   </li>
                 </ul>
               </div>
-              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
-                        Change Password
+                      Change Password
                       </h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>

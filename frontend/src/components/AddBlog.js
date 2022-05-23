@@ -66,7 +66,7 @@ const AddBlog = (props) => {
           </div>
          
           <button
-            disabled={blog.title.length < 3 || blog.content.length < 5}
+            disabled={blog.title.length < 5 || blog.content.length < 5}
             type="submit"
             className="btn btn-primary"
             onClick={handleClick}

@@ -23,10 +23,11 @@ const BlogSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref : 'user'
     }],
-    comment: [{
-        commenter : { type: mongoose.Schema.Types.ObjectId, ref : 'user'},
-        commentbody : {type : String}}
-    ],
+    comments: [{
+        // commentId : { type: mongoose.Schema.Types.ObjectId, ref : 'comment'}
+        type: mongoose.Schema.Types.ObjectId, 
+        ref : 'comment'
+    }],
     date: {
         type: Date,
         default: Date.now

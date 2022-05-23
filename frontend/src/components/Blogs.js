@@ -47,12 +47,12 @@ const Blogs = (props) => {
     <div>
       <AddBlog showAlert={props.showAlert} />
       {/* <!-- Button trigger modal --> */}
-      <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#blogModal">
         Launch demo modal
       </button>
 
       {/* <!-- Modal --> */}
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal fade" id="blogModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
