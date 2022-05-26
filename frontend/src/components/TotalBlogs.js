@@ -9,11 +9,11 @@ const TotalBlogs = () => {
     allBlogs();
   }, []);
   return (
-    <div>
+    <div className="container">
       <h2>Your Blogs</h2>
 
       <div className="row my-3">
-        <div className="container mx-2">
+        <div className="mx-2">
           {blogs.length === 0 && "No blogs to display"}
         </div>
         {blogs.map((blog) => {

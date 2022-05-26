@@ -103,11 +103,38 @@ const BlogState = (props) => {
     }
     setBlog(newBlogs) ;
   };
+
+// Like a Blog
+  const likeBlog = async (id) => {
+    // API
+    const response = await fetch(`${host}/api/blogs/like/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem('token'),
+      },
+      // body: JSON.stringify(data), // body data type must match "Content-Type" header
+    });
+    const json = await response.json();
+    console.log(json);
+    // search for the blog to be liked and update
+    let newBlogs = JSON.parse(JSON.stringify(blogs))
+    for (let index = 0; index < newBlogs.length; index++) {
+      const element = newBlogs[index];
+      if (element._id === id) {
+        newBlogs[index].likes.push("req.params.id");
+        break;
+      }
+    }
+    setBlog(newBlogs) ;
+  };
+
+
   return (
     // here props.children means that the "value" will be accesible to all the items(props) present inside the blogcontext component.
     // simple explanation of what props.children does is that it is used to display whatever you include between the opening and closing tags when invoking a component.
     <BlogContext.Provider
-      value={{ blogs, setBlog, addBlog,allBlogs, deleteBlog, editBlog, getBlogs }}
+      value={{ blogs, setBlog, addBlog,allBlogs, deleteBlog, editBlog, getBlogs, likeBlog }}
     >
       <>{props.children}</>
     </BlogContext.Provider>

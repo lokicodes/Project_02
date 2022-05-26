@@ -21,7 +21,7 @@ const Login = (props) => {
       // Save the auth token and redirect
       localStorage.setItem('token', json.authToken);
       props.showAlert("Logged in Successfully", "success");
-      navigate("/");
+      navigate("/home");
       window. location. reload(false);
     }
     else {
@@ -34,7 +34,7 @@ const Login = (props) => {
   }
 
   return (
-    <div className="mt-3">
+    <div className="container mt-3">
       <h2>Login to Project_02</h2>
       <form onSubmit={handleSubmit}>
         <div className="my-3">
@@ -47,7 +47,7 @@ const Login = (props) => {
           <input type="password" className="form-control" value={credentials.password} onChange={onChange} name="password" id="password" />
         </div>
 
-        <button type="submit" className="btn btn-primary">Submit</button>
+        <button type="submit" className="btn btn-success">Submit</button>
       </form>
     </div>
   )

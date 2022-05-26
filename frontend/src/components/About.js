@@ -4,7 +4,9 @@ import BlogContext from "../context/BlogContext";
 const About = () => {
   const a = useContext(BlogContext);
   return (
-    <div>Hello I am {a.name} and my branch is {a.branch}</div>
+    <div className="container">
+    Hello I am {a.name} and my branch is {a.branch}
+    </div>
   );
 };
 

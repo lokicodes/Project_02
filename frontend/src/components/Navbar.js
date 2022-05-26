@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import "./Navbar.css" ;
 const host = "http://localhost:5000";
 
 const Navbar = (props) => {
@@ -64,7 +65,7 @@ const Navbar = (props) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-transparent container-fluid text-dark p-5">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           Project02
@@ -79,7 +80,7 @@ const Navbar = (props) => {
             <li className="nav-item">
               {/* here i we have used Navlink instead of use location as it does the same job */}
 
-              <NavLink className="nav-link active" aria-current="page" to="/">
+              <NavLink className="nav-link" aria-current="page" to="/home">
                 Home
               </NavLink>
             </li>
@@ -93,6 +94,11 @@ const Navbar = (props) => {
                 Blogs
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/addBlog">
+                Add a Blog
+              </NavLink>
+            </li>
           </ul>
           {!localStorage.getItem("token") ? (
             <form className="d-flex">
@@ -100,17 +106,17 @@ const Navbar = (props) => {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-              <Link className="btn btn-primary mx-1" to="/login" role="button">
+              <Link className="btn btn-success mx-1" to="/login" role="button">
                 Login
               </Link>
-              <Link className="btn btn-primary mx-1" to="/signup" role="button">
+              <Link className="btn btn-success mx-1" to="/signup" role="button">
                 Signup
               </Link>
             </form>
           ) : (
             <div>
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                <button class="btn bg-transparent btn-outline-success text-dark dropdown-toggle name-size" type="button" id="dropdownMenuButton1"
                   data-bs-toggle="dropdown" aria-expanded="false" >
                   {user.name}
                 </button>
@@ -130,18 +136,18 @@ const Navbar = (props) => {
               </div>
               <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                  <div class="modal-content">
+                  <div class="modal-content  bg-dark text-light">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
                       Change Password
                       </h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form>
                         <div className="mb-3">
                           <label htmlFor="password" className="form-label">
-                            Enter your new Passowrd
+                            Enter your new Password
                           </label>
                           <input type="password" className="form-control" id="pass" name="password"                          aria-describedby="emailHelp"
                             value={pass.password}
@@ -163,7 +169,7 @@ const Navbar = (props) => {
                       <button
                         onClick={handleClick}
                         type="button"
-                        class="btn btn-primary"
+                        class="btn btn-success"
                       >
                         Save changes
                       </button>
