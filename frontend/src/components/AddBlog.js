@@ -1,12 +1,20 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import BlogContext from "../context/BlogContext";
 import "./AddBlog.css";
 import pen from "../pen.png" ;
+import { useNavigate } from "react-router-dom";
+
 const AddBlog = (props) => {
   const context = useContext(BlogContext);
   const { addBlog } = context;
   const [blog, setBlog] = useState({ title: "", content: "", tag: "default" })
 
+  let navigate = useNavigate() ;
+  useEffect(() => {
+    if(!localStorage.getItem('token')) {
+      navigate("/login") ;
+    }
+  }, [])
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -70,7 +78,7 @@ const AddBlog = (props) => {
               </div>
 
               <button
-                disabled={blog.title.length < 5 || blog.content.length < 5}
+                disabled={blog.title.length < 3 || blog.content.length < 5}
                 type="submit"
                 className="btn btn-success mb-5 mt-5"
                 onClick={handleClick}

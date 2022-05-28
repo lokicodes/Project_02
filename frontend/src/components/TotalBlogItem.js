@@ -1,5 +1,6 @@
 import React , {useRef, useContext} from "react";
 import BlogContext from "../context/BlogContext";
+import ReadMore from "./ReadMore";
 
 // yaha props me blog.js se aaya hua data use ho raha hai
 const TotalItem = (props) => {
@@ -13,14 +14,14 @@ const TotalItem = (props) => {
   
     <div>
       <div className="card my-3">
-        <div className="card-body bg-dark text-light">
+        <div className="card-body text-dark">
           <div className="d-flex align-items-center">
             <h5 className="card-title">
              {blog.title}</h5>
           </div>
-          <p className="card-text">{blog.content}</p>
+          <p className="card-text"><ReadMore>{blog.content}</ReadMore></p>
           {/* show the length of the like list array */}
-          <p>{blog.likes.length}
+          <p>{blog.likes.length + " "}
           <button class="fas fa-thumbs-up" onClick={()=>{likeBlog(blog._id); }}></button>
           </p>
         </div>

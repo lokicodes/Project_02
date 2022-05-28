@@ -23,8 +23,8 @@ router.post(
   fetchUser,
   [
     // ye part validation ke kaam aata hai
-    body("title", "Enter a valid title, min length 5 characters").isLength({
-      min: 5,
+    body("title", "Enter a valid title, min length 3 characters").isLength({
+      min: 3,
     }),
     body("content", "Content must be 5 characters long").isLength({ min: 5 }),
   ],

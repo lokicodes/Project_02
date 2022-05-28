@@ -2,6 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import "./BlogItem.css" ;
 import BlogContext from "../context/BlogContext";
+import ReadMore from "./ReadMore";
+
 // yaha props me blog.js se aaya hua data use ho raha hai
 const BlogItem = (props) => {
   const context = useContext(BlogContext);
@@ -19,7 +21,7 @@ const BlogItem = (props) => {
               <i className="fa-solid fa-trash-can mx-2" onClick={()=>{deleteBlog(blog._id); props.showAlert("Deleted Successfully" , "success") ;}}></i>
               <i className="fa-solid fa-pen-clip mx-2" onClick={()=> updateBlog(blog)}></i>
           </div>
-          <p className="card-text">{blog.content}</p>
+          <p className="card-text"><ReadMore>{blog.content}</ReadMore></p>
         </div>
       </div>
     </div>

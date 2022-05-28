@@ -2,7 +2,7 @@ import React from "react";
 import BlogContext from "../context/BlogContext";
 import { useContext, useEffect, useRef, useState } from "react";
 import BlogItem from "./BlogItem";
-import AddBlog from "./AddBlog";
+// import AddBlog from "./AddBlog";
 import { useNavigate } from "react-router-dom";
 
 const Blogs = (props) => {

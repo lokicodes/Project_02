@@ -81,7 +81,7 @@ const Navbar = (props) => {
               {/* here i we have used Navlink instead of use location as it does the same job */}
 
               <NavLink className="nav-link" aria-current="page" to="/home">
-                Home
+                Your Blogs
               </NavLink>
             </li>
             <li className="nav-item">
@@ -91,7 +91,7 @@ const Navbar = (props) => {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/allblogs">
-                Blogs
+                All Blogs
               </NavLink>
             </li>
             <li className="nav-item">
