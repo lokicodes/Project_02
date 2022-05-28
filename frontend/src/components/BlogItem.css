@@ -1,3 +1,20 @@
-.bg-colour{
-    background-color: rgb(37,86,30);
+.card {
+    border-radius: 0.5rem ;
+    border-color: black;
+    border-width: 2px;
+}
+
+.card-title {
+    text-align: center;
+    text-decoration: underline;
+    font-size: 35px;
+}
+
+.card-text {
+    font-size: 25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.utility-icons {
+    text-align: center;
 }

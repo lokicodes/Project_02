@@ -65,7 +65,7 @@ const Navbar = (props) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-transparent container-fluid text-dark p-5">
+    <nav className="navbar navbar-expand-lg navbar-light bg-transparent container-fluid text-dark p-5 pb-4">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">
           Project02
@@ -102,10 +102,10 @@ const Navbar = (props) => {
           </ul>
           {!localStorage.getItem("token") ? (
             <form className="d-flex">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+              {/* <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
               <button className="btn btn-outline-success" type="submit">
                 Search
-              </button>
+              </button> */}
               <Link className="btn btn-success mx-1" to="/login" role="button">
                 Login
               </Link>

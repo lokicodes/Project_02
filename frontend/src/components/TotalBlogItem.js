@@ -13,13 +13,14 @@ const TotalItem = (props) => {
   return (
   
     <div>
-      <div className="card my-3">
+      <div className="card bg-transparent my-3">
         <div className="card-body text-dark">
-          <div className="d-flex align-items-center">
+          <div className="align-items-center">
             <h5 className="card-title">
              {blog.title}</h5>
           </div>
-          <p className="card-text"><ReadMore>{blog.content}</ReadMore></p>
+          {/* Here blog.content is the children for readmore component */}
+          <p className="card-text py-4"><ReadMore>{blog.content}</ReadMore></p>
           {/* show the length of the like list array */}
           <p>{blog.likes.length + " "}
           <button class="fas fa-thumbs-up" onClick={()=>{likeBlog(blog._id); }}></button>

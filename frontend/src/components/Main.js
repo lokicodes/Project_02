@@ -2,8 +2,9 @@ import React from 'react'
 
 const Main = () => {
   return (
-    <div className='container text-center'>
-    Express yourself , Your Way !
+    <div className='container text-center text-dark'>
+      Express yourself , Your Way !
+      <br></br>
     </div>
   )
 }

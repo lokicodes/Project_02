@@ -40,4 +40,5 @@
 .bg-img{
   background: rgb(250,222,227);
   background: linear-gradient(60deg, rgba(53,214,221,1) 60% ,rgba(250,222,227,1) 60%);
+  min-height: 1080px;
 }

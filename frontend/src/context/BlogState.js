@@ -76,7 +76,7 @@ const BlogState = (props) => {
   };
 
   // Update/Edit Blog
-  const editBlog = async (id, title, content, tag , likes) => {
+  const editBlog = async (id, title, content, tag) => {
     // API
     const response = await fetch(`${host}/api/blogs/updateBlog/${id}`, {
       method: 'PUT',
@@ -84,7 +84,7 @@ const BlogState = (props) => {
         "Content-Type": "application/json",
         "auth-token": localStorage.getItem('token'),
       },
-      body: JSON.stringify({ title, content, tag ,likes}), // body data type must match "Content-Type" header
+      body: JSON.stringify({ title, content, tag }), // body data type must match "Content-Type" header
     });
     const json = await response.json() ;
     console.log(json) ;
@@ -97,7 +97,6 @@ const BlogState = (props) => {
         newBlogs[index].title = title;
         newBlogs[index].content = content;
         newBlogs[index].tag = tag;
-        newBlogs[index].likes = likes;
         break;
       }
     }
