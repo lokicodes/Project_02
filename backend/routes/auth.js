@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const fetchUser = require("../middlewares/fetchUser") ;
 
-const JWT_SECRET = "SecretKoSecretRhendoBhadwe" ;
+const JWT_SECRET = process.env.JWTSECRET ;
 
 //Route 1 : Creating a user
 //matlab : isme initial token banta hai password hashing + salting se jo store hota hai db me.
@@ -142,5 +142,20 @@ router.put('/updatePassword', fetchUser, async(req,res) => {
       res.status(500).send("Internal Server Error");
     }
 })
+
+// get user name from the blog id
+router.post('/getbloguser/:id',  async (req, res) => {
+
+    try {
+      const userId = req.params.id;
+      // yahan select me -password likhkr ham data me se password hatakr send krenge
+      const user = await User.findById(userId);
+      res.send(user)
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal Server Error");
+    }
+  })
+
 
 module.exports = router;

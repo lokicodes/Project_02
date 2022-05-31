@@ -34,7 +34,7 @@ const AddBlog = (props) => {
     <div>
       <div className="container text-dark add-blog-cont">
         <div className="row align-items-center">
-          <div className="col-md-10">
+          <div className="col-lg-10 col-md-10 col-sm-12 col-xs-12">
             <h1 className="mb-4 bloghead">WRITE A NEW BLOG🖊️</h1>
             <form>
               <div className="mb-4">
@@ -51,19 +51,6 @@ const AddBlog = (props) => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="content" className="form-label">
-                  ✒ Content
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="content"
-                  name="content"
-                  value={blog.content}
-                  onChange={onChange}
-                />
-              </div>
-              <div className="mb-4">
                 <label htmlFor="tag" className="form-label">
                   ✒ Tag
                 </label>
@@ -76,11 +63,30 @@ const AddBlog = (props) => {
                   onChange={onChange}
                 />
               </div>
+              <div className="mb-4">
+                <label htmlFor="content" className="form-label">
+                  ✒ Content
+                </label>
+                {/* <input
+                  type="text"
+                  className="form-control content-text"
+                  id="content"
+                  name="content"
+                  value={blog.content}
+                  onChange={onChange}
+                /> */}
+                <textarea
+                  className="form-control content-text"
+                  id="content"
+                  name="content"
+                  value={blog.content}
+                  onChange={onChange} />
+              </div>
 
               <button
                 disabled={blog.title.length < 3 || blog.content.length < 5}
                 type="submit"
-                className="btn btn-success mb-5 mt-5"
+                className="btn btn-colour text-dark mb-5 mt-4"
                 onClick={handleClick}
               >
                 SAVE BLOG
@@ -88,7 +94,7 @@ const AddBlog = (props) => {
             </form>
           </div>
 
-          <div className="col-md-2">
+          <div className="col-lg-2 col-md-2">
             <img className="img-css" src={pen} />
           </div>
         </div>

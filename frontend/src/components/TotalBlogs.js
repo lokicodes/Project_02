@@ -10,7 +10,7 @@ const TotalBlogs = () => {
   }, []);
   return (
     <div className="container">
-      <h2>All Blogs</h2>
+      <h2 className="all-blog">All BLOGS</h2>
 
       <div className="row my-3">
         <div className="mx-2">

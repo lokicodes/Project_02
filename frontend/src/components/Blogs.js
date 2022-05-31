@@ -54,15 +54,15 @@ const Blogs = (props) => {
       {/* <!-- Modal --> */}
       <div className="modal fade" id="blogModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
-          <div className="modal-content bg-dark text-light">
+          <div className="modal-content bg-modal text-dark">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">Edit your Blog</h5>
               <button type="button" className="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <form className="bg-dark text-light">
+              <form className="text-dark">
                 <div className="mb-3">
-                  <label htmlFor="title" className="form-label">title</label>
+                  <label htmlFor="title" className="form-label">Title</label>
                   <input type="text" className="form-control" id="editedtitle" name="editedtitle" aria-describedby="emailHelp"
                     value={blog.editedtitle} onChange={onChange}
                   />
@@ -104,7 +104,7 @@ const Blogs = (props) => {
       </div>
 
       <div className="container">
-        <h2>Your Blogs</h2>
+        <h2 className="all-blog">Your Blogs</h2>
       
       <div className="row my-3">
         <div className="container mx-2">{blogs.length === 0 && "No blogs to display"}</div>
