@@ -67,7 +67,7 @@ const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-transparent container-fluid text-dark p-5 pb-4">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/about">
+        <NavLink className="navbar-brand" to="/">
           Project02
         </NavLink>
         <button
@@ -79,7 +79,7 @@ const Navbar = (props) => {
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             
             <li className="nav-item">
-              <NavLink className="nav-link" to="/about">
+              <NavLink className="nav-link" to="/">
                 About
               </NavLink>
             </li>
