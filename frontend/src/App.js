@@ -2,7 +2,6 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Main from "./components/Main" ;
 import About from "./components/About";
 import BlogState from "./context/BlogState";
 import Alert from "./components/Alert";
@@ -36,7 +35,6 @@ function App() {
             <Alert alert={alert} />
             <div className="container-fluid px-5 pb-5">
               <Routes>
-                <Route path="/" element={<Main showAlert={showAlert} />} />
                 <Route path="/home" element={<Home showAlert={showAlert} />} />
                 <Route path="/addBlog" element={<AddBlog showAlert={showAlert} />} />
                 <Route path="/about" element={<About />} />

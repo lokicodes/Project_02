@@ -67,7 +67,7 @@ const Navbar = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-transparent container-fluid text-dark p-5 pb-4">
       <div className="container-fluid">
-        <NavLink className="navbar-brand" to="/">
+        <NavLink className="navbar-brand" to="/about">
           Project02
         </NavLink>
         <button
@@ -77,13 +77,7 @@ const Navbar = (props) => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              {/* here i we have used Navlink instead of use location as it does the same job */}
-
-              <NavLink className="nav-link" aria-current="page" to="/home">
-                Your Blogs
-              </NavLink>
-            </li>
+            
             <li className="nav-item">
               <NavLink className="nav-link" to="/about">
                 About
@@ -92,6 +86,13 @@ const Navbar = (props) => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/allblogs">
                 All Blogs
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              {/* here i we have used Navlink instead of use location as it does the same job */}
+
+              <NavLink className="nav-link" aria-current="page" to="/home">
+                Your Blogs
               </NavLink>
             </li>
             <li className="nav-item">
@@ -136,7 +137,7 @@ const Navbar = (props) => {
               </div>
               <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
-                  <div class="modal-content  bg-dark text-light">
+                  <div class="modal-content bg-modal text-dark">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">
                       Change Password

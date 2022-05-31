@@ -8,12 +8,12 @@
     text-align: center;
     text-decoration: underline;
     font-size: 35px;
+    font-family: 'Patrick Hand SC', cursive;
 }
 
 .card-text {
     font-size: 25px;
-    font-family: 'Open Sans', sans-serif;
-}
+    font-family: 'Handlee', cursive;}
 
 .utility-icons {
     text-align: center;

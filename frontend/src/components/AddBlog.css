@@ -8,3 +8,23 @@
 .img-css {
     width: 25rem;
 }
+/* .content-text{
+    height: 100px;
+} */
+.form-control{
+    background-color: #ffffff61;
+}
+
+.btn-colour{
+    background-color: rgba(250,222,227,1) ;
+}
+
+.content-text{
+    height: 200px;
+}
+
+@media (max-width: 820px) {
+    .img-css {
+        width: 0rem;
+    }
+}
