@@ -58,7 +58,7 @@ const BlogState = (props) => {
   // Delete Blog
   const deleteBlog = async (id) => {
     // API
-    const response = await fetch(`${host}/api/blogs/deleteBlog/${id}`, {
+    const response = await fetch(`${process.env.BASE_URL}/api/blogs/deleteBlog/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
