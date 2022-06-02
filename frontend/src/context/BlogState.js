@@ -10,7 +10,7 @@ const BlogState = (props) => {
   // Get All Blogs for a specific user
   const getBlogs = async () => {
     // API
-    const response = await fetch(`${host}/api/blogs/fetchallblogs`, {
+    const response = await fetch("https://bit-blogger.herokuapp.com/api/blogs/fetchallblogs", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const BlogState = (props) => {
   // Get All Blogs(total)
   const allBlogs = async () => {
     // API
-    const response = await fetch(`${host}/api/blogs/fetchtotalblogs`, {
+    const response = await fetch("https://bit-blogger.herokuapp.com/api/blogs/fetchtotalblogs", {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
