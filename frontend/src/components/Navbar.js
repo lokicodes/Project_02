@@ -7,7 +7,7 @@ const Navbar = (props) => {
   const [pass, setPass] = useState({ password: "" });
   const editPass = async (password) => {
     // API
-    const response = await fetch("https://bit-blogger.herokuapp.comapi/auth/updatePassword", {
+    const response = await fetch("https://bit-blogger.herokuapp.com/api/auth/updatePassword", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const Navbar = (props) => {
   // api to show user name and data
   const getUser = async () => {
     // API
-    const response = await fetch("https://bit-blogger.herokuapp.comapi/auth/getuser", {
+    const response = await fetch("https://bit-blogger.herokuapp.com/api/auth/getuser", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
