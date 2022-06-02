@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css" ;
-const host = process.env.PORT || 5000;
 
 const Navbar = (props) => {
   //Change paasword
   const [pass, setPass] = useState({ password: "" });
   const editPass = async (password) => {
     // API
-    const response = await fetch(`${host}/api/auth/updatePassword`, {
+    const response = await fetch(`${process.env.BASE_URL}/api/auth/updatePassword`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +50,7 @@ const Navbar = (props) => {
   // api to show user name and data
   const getUser = async () => {
     // API
-    const response = await fetch(`http://localhost:${host}/api/auth/getuser`, {
+    const response = await fetch(`${process.env.BASE_URL}/api/auth/getuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
