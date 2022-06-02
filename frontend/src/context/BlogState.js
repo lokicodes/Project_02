@@ -35,6 +35,7 @@ const BlogState = (props) => {
     
     const json = await response.json();
     console.log(json);
+    console.log(process.env.BASE_URL);
     setBlog(json);
   };
 
