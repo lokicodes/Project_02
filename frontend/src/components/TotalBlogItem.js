@@ -24,7 +24,7 @@ const TotalItem = (props) => {
   const getUser = async () => {
     // API
     const response = await fetch(
-      `${process.env.BASE_URL}/api/auth/getbloguser/${blog.user}`,
+      `https://bit-blogger.herokuapp.com/api/auth/getbloguser/${blog.user}`,
       {
         method: "POST",
         headers: {

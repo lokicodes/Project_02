@@ -10,7 +10,7 @@ const BlogState = (props) => {
   // Get All Blogs for a specific user
   const getBlogs = async () => {
     // API
-    const response = await fetch(`${process.env.BASE_URL}/api/blogs/fetchallblogs`, {
+    const response = await fetch(`https://bit-blogger.herokuapp.com/api/blogs/fetchallblogs`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ const BlogState = (props) => {
   // Get All Blogs(total)
   const allBlogs = async () => {
     // API
-    const response = await fetch(`${process.env.BASE_URL}/api/blogs/fetchtotalblogs`, {
+    const response = await fetch(`https://bit-blogger.herokuapp.com/api/blogs/fetchtotalblogs`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json"
@@ -42,7 +42,7 @@ const BlogState = (props) => {
   // Add Blog
   const addBlog = async (title, content, tag) => {
     // API
-    const response = await fetch(`${process.env.BASE_URL}/api/blogs/createBlog`, {
+    const response = await fetch(`https://bit-blogger.herokuapp.com/api/blogs/createBlog`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const BlogState = (props) => {
   // Delete Blog
   const deleteBlog = async (id) => {
     // API
-    const response = await fetch(`${process.env.BASE_URL}/api/blogs/deleteBlog/${id}`, {
+    const response = await fetch(`https://bit-blogger.herokuapp.com/api/blogs/deleteBlog/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const BlogState = (props) => {
   // Update/Edit Blog
   const editBlog = async (id, title, content, tag) => {
     // API
-    const response = await fetch(`${process.env.BASE_URL}/api/blogs/updateBlog/${id}`, {
+    const response = await fetch(`https://bit-blogger.herokuapp.com/api/blogs/updateBlog/${id}`, {
       method: 'PUT',
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +107,7 @@ const BlogState = (props) => {
 // Like a Blog
   const likeBlog = async (id) => {
     // API
-    const response = await fetch(`${process.env.BASE_URL}/api/blogs/like/${id}`, {
+    const response = await fetch(`https://bit-blogger.herokuapp.com/api/blogs/like/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

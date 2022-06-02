@@ -8,7 +8,7 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
-    const response = await fetch(`${process.env.BASE_URL}/api/auth/createUser`, {
+    const response = await fetch("https://bit-blogger.herokuapp.com/api/auth/createUser", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
