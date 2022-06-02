@@ -2,7 +2,7 @@
 import { useState } from "react";
 import BlogContext from "./BlogContext";
 const BlogState = (props) => {
-  const host = "http://localhost:5000";
+  const host = process.env.PORT || 5000;
   const initBlog = [];
   // setBlog is a function used to update the blog state (blog)
   const [blogs, setBlog] = useState(initBlog);

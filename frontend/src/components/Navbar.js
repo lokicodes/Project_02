@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css" ;
-const host = "http://localhost:5000";
+const host = process.env.PORT || 5000;
 
 const Navbar = (props) => {
   //Change paasword
@@ -51,7 +51,7 @@ const Navbar = (props) => {
   // api to show user name and data
   const getUser = async () => {
     // API
-    const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+    const response = await fetch(`http://localhost:${host}/api/auth/getuser`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
